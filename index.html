@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PUDA GLOBAL</title>
+    <!-- Favicon -->
+    <link rel="icon" href="logo.jpg" type="image/jpeg">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            color: white;
+            text-align: center;
+        }
+        header {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            font-size: 24px;
+        }
+        .produk-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px;
+        }
+        .produk {
+            background: rgba(255, 255, 255, 0.9);
+            color: black;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            width: calc(50% - 20px);
+            max-width: 180px;
+            text-align: center;
+        }
+        @media (max-width: 600px) {
+            .produk {
+                width: 100%;
+                max-width: 250px;
+            }
+        }
+        button {
+            background: #0072ff;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #005bb5;
+        }
+        .logo {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.jpg" alt="Logo" class="logo">
+        <h1>PUDA GLOBAL</h1>
+    </header>
+    <script>
+        function beli(produk) {
+            alert(`Anda telah memilih ${produk}`);
+            setTimeout(() => {
+                let konfirmasi = confirm(`Apakah Anda yakin ingin membeli ${produk}?`);
+                if (konfirmasi) {
+                    alert(`Pembelian ${produk} berhasil!`);
+                } else {
+                    alert(`Pembelian ${produk} dibatalkan.`);
+                }
+            }, 1000);
+        }
+
+        const produkList = [
+            { nama: "Pulsa 5.000", harga: "Rp 6.500" },
+            { nama: "Pulsa 10.000", harga: "Rp 12.000" },
+            { nama: "Pulsa 20.000", harga: "Rp 22.000" },
+            { nama: "Pulsa 50.000", harga: "Rp 52.000" },
+            { nama: "Pulsa 100.000", harga: "Rp 102.000" },
+            { nama: "Pulsa 200.000", harga: "Rp 202.000" },
+            { nama: "Pulsa 500.000", harga: "Rp 505.000" },
+            { nama: "Pulsa 1.000.000", harga: "Rp 1.010.000" },
+            { nama: "Data 500MB", harga: "Rp 10.000" },
+            { nama: "Data 1GB", harga: "Rp 15.000" },
+            { nama: "Data 2GB", harga: "Rp 25.000" },
+            { nama: "Data 3GB", harga: "Rp 35.000" },
+            { nama: "Data 5GB", harga: "Rp 50.000" },
+            { nama: "Data 10GB", harga: "Rp 90.000" },
+            { nama: "Data 15GB", harga: "Rp 120.000" },
+            { nama: "Data 20GB", harga: "Rp 170.000" },
+            { nama: "Data 30GB", harga: "Rp 250.000" },
+            { nama: "Data 50GB", harga: "Rp 400.000" },
+            { nama: "Data 75GB", harga: "Rp 600.000" },
+            { nama: "Data 100GB", harga: "Rp 750.000" },
+            { nama: "Data 150GB", harga: "Rp 1.100.000" },
+            { nama: "Data 200GB", harga: "Rp 1.400.000" }
+        ];
+        
+        document.write('<div class="produk-container">');
+        produkList.forEach(produk => {
+            document.write(`
+                <div class="produk">
+                    <h3>${produk.nama}</h3>
+                    <p>${produk.harga}</p>
+                    <button onclick="beli('${produk.nama}')">Beli</button>
+                </div>
+            `);
+        });
+        document.write('</div>');
+    </script>
+</body>
+</html>
